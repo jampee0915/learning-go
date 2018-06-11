@@ -55,6 +55,17 @@ func main() {
 	default:
 		fmt.Println("unknown")
 	}
+
+	// goto
+	fmt.Println("A")
+	goto L
+	fmt.Println("B")
+
+	L: /* ラベル */
+		fmt.Println("C")
+
+	// defer
+	runDefer()
 }
 
 // int型のパラメーターa, bを受け取り、足し合わせた数値をint型で返す
@@ -91,3 +102,10 @@ func later() func(string) string {
 	}
 
 }
+
+// defer
+func runDefer() {
+	defer fmt.Println("defer")
+	fmt.Println("done")
+}
+

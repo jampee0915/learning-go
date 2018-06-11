@@ -186,3 +186,34 @@ for [配列のインデックス], [配列の要素] := range [配列型] {
     ....
 }
 ```
+
+#### goto
+- 関数内の任意の位置へジャンプする構文
+```
+func main() {
+   fmt.Println("A")
+   goto L
+   fmt.Println("B") // 処理されない
+
+L: /* ラベル */
+   fmt.Println("C")   
+}
+
+```
+
+#### defer
+- 関数の終了時に実行される式を登録できる
+- いくつも登録は可能
+  - ただし、あとに登録された式から順に評価されることに注意
+- ファイルなどのリソース開放処理漏れを防ぐといった局面で活用できる
+```
+func runDefer() {
+    defer fmt.Println("defer")
+    fmt.Println("done")
+}
+
+runDefer()
+```
+
+#### panic
+- 他言語でいうランタイムエラー
