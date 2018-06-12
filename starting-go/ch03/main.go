@@ -56,13 +56,24 @@ func main() {
 		fmt.Println("unknown")
 	}
 
+	// go
+	go func() {
+		for {
+			fmt.Println("sub loop")
+		}
+	}()
+
+	for {
+		fmt.Println("main loop")
+	}
+
 	// goto
 	fmt.Println("A")
 	goto L
 	fmt.Println("B")
 
-	L: /* ラベル */
-		fmt.Println("C")
+L: /* ラベル */
+	fmt.Println("C")
 
 	// defer
 	runDefer()
@@ -108,4 +119,3 @@ func runDefer() {
 	defer fmt.Println("defer")
 	fmt.Println("done")
 }
-
